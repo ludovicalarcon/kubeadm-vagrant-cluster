@@ -11,3 +11,6 @@ cp $SHARED_FOLDER/admin.conf $HOME/.kube/config
 chown $(id -u vagrant):$(id -g vagrant) $HOME/.kube/config
 
 kubectl label node $(hostname -s) node-role.kubernetes.io/worker=worker-node
+
+kubectl rollout restart deploy/coredns -n kube-system
+kubectl rollout restart deploy metrics-server -n kube-system
