@@ -3,7 +3,7 @@
 CONTAINERD_VERSION="1.5.8"
 KUBERNETES_VERSION="1.23.1-00"
 
-echo $(hostname -i) $(hostname) | sudo tee -a /etc/hosts
+echo $1 $(hostname) | sudo tee -a /etc/hosts
 
 # disable swap
 sudo sed -i "/ swap / s/^/#/" /etc/fstab

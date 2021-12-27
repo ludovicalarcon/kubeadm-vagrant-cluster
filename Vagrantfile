@@ -18,7 +18,7 @@ Vagrant.configure("2") do |config|
         master.vm.hostname = "master-node"
         master.vm.network "private_network", ip: "10.0.0.10"
 
-        master.vm.provision "shell", path: "scripts/prerequisite.sh"
+        master.vm.provision "shell", path: "scripts/prerequisite.sh", args: "10.0.0.10"
         master.vm.provision "shell", path: "scripts/master-node.sh"
     end
 
@@ -34,7 +34,7 @@ Vagrant.configure("2") do |config|
             worker.vm.hostname = "worker-node0#{i}"
             worker.vm.network "private_network", ip: "10.0.0.#{i + 10}"
 
-            worker.vm.provision "shell", path: "scripts/prerequisite.sh"
+            worker.vm.provision "shell", path: "scripts/prerequisite.sh", args: "10.0.0.#{i + 10}"
             worker.vm.provision "shell", path: "scripts/worker-node.sh"
         end
     end
