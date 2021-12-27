@@ -1,1 +1,4 @@
 .vagrant
+
+*.conf
+join.sh
