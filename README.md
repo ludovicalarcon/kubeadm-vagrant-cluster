@@ -8,6 +8,13 @@ Simply use `vagrant up` to create a multi-node cluster.
 > vagrant up
 ```
 
+## Prerequisites
+
+- [Vagrant](https://www.vagrantup.com/downloads)
+- [VirtualBox](https://www.virtualbox.org/wiki/Downloads)
+
+## Specs
+
 Kubernetes version: 1.23  
 CRI: [Containerd](https://github.com/containerd/containerd)  
 CNI: [Calico](https://projectcalico.docs.tigera.io/about/about-calico)
