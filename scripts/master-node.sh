@@ -30,3 +30,18 @@ curl -OL https://github.com/kubernetes-sigs/metrics-server/releases/latest/downl
 sed -i "/--metric-resolution/a\        - --kubelet-insecure-tls" components.yaml
 kubectl apply -f components.yaml
 rm components.yaml
+
+echo "Installing MetalLB"
+kubectl create ns metallb-system
+cat <<EOF | sudo tee values.yaml
+configInline:
+  address-pools:
+   - name: default
+     protocol: layer2
+     addresses:
+     - 10.0.0.240-10.0.0.250
+EOF
+helm repo add metallb https://metallb.github.io/metallb
+helm repo update
+helm install metallb metallb/metallb -f values.yaml -n metallb-system
+rm values.yaml
