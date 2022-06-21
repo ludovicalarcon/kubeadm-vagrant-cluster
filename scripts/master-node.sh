@@ -13,7 +13,8 @@ cp /etc/kubernetes/admin.conf $HOME/.kube/config
 chown $(id -u vagrant):$(id -g vagrant) $HOME/.kube/config
 
 # using shared folder to keep join token and config
-cp -f /etc/kubernetes/admin.conf $SHARED_FOLDER
+mkdir -p $SHARED_FOLDER/scripts
+cp -f /etc/kubernetes/admin.conf $SHARED_FOLDER/admin.conf
 
 kubeadm token create --print-join-command > $SHARED_FOLDER/scripts/join.sh
 chmod +x $SHARED_FOLDER/scripts/join.sh
