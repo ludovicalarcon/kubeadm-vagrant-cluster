@@ -56,7 +56,7 @@ cat <<EOF | sudo tee /etc/systemd/system/kubelet.service.d/0-containerd.conf
 Environment="KUBELET_EXTRA_ARGS=--container-runtime=remote --runtime-request-timeout=15m --container-runtime-endpoint=unix:///run/containerd/containerd.sock"
 EOF
 
-systemctl daemon-reload
+sudo systemctl daemon-reload
 
 # Helm3
 curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
