@@ -1,7 +1,7 @@
 #! /bin/bash
 
-CONTAINERD_VERSION="1.6.4"
-KUBERNETES_VERSION="1.24.0-00"
+CONTAINERD_VERSION="1.6.14"
+KUBERNETES_VERSION="1.26.0-00"
 
 echo $1 $(hostname) | sudo tee -a /etc/hosts
 
